@@ -9,12 +9,15 @@ const applicationRoutes = require("./routes/applications");
 
 const app = express();
 
-const cors = require("cors");
-
 app.use(cors({
-  origin: "https://student-intenship-portal.vercel.app"
+  origin: [
+    "https://student-intenship-portal.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
+app.use(express.json());
 app.use(express.json());
 
 app.use(express.json());
