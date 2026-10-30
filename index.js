@@ -9,13 +9,13 @@ const applicationRoutes = require("./routes/applications");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL
-      ? process.env.CLIENT_URL.split(",").map((url) => url.trim())
-      : "http://localhost:5173"
-  })
-);
+const cors = require("cors");
+
+app.use(cors({
+  origin: "https://student-intenship-portal.vercel.app"
+}));
+
+app.use(express.json());
 
 app.use(express.json());
 
