@@ -33,7 +33,7 @@ function Home() {
   useEffect(() => {
     async function fetchInternships() {
       try {
-        const response = await fetch("/api/internships");
+        const response = await fetch(`${API_URL}/internships`);
 
         if (!response.ok) {
           throw new Error("Unable to load internships.");
@@ -135,7 +135,7 @@ function InternshipDetails() {
 
     async function fetchDetails() {
       try {
-        const response = await fetch(`/api/internships/${id}`);
+        const response = await fetch(`${API_URL}/internships/${id}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -231,7 +231,7 @@ function ApplicationForm() {
 
     async function loadInternship() {
       try {
-        const response = await fetch(`/api/internships/${id}`);
+        const response = await fetch(`${API_URL}/internships/${id}`);
         const data = await response.json();
 
         if (!response.ok) {
@@ -297,7 +297,7 @@ function ApplicationForm() {
     setSubmitting(true);
 
     try {
-      const response = await fetch("/api/applications", {
+      const response = await fetch(`${API_URL}/applications`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
